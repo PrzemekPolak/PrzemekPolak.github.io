@@ -59,26 +59,26 @@
 
     <script type="module">
         // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"
+        import { initializeApp } from "firebase/app";
+        import { getAnalytics } from "firebase/analytics";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
-        
-        // Firestore
-        import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
-        import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
-      
+
         // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
-          apiKey: "AIzaSyC_Ckr6ukuKfnYBcSutBACb8nTxRLq2B30",
-          authDomain: "mobile1-b8d84.firebaseapp.com",
-          projectId: "mobile1-b8d84",
-          storageBucket: "mobile1-b8d84.appspot.com",
-          messagingSenderId: "904226315912",
-          appId: "1:904226315912:web:7a419ed8447221fa50c93d"
+        apiKey: "AIzaSyCO_bRChkSzS7u38Y5Ja6W6Fg44Lv9AR1Y",
+        authDomain: "cars-ba7c1.firebaseapp.com",
+        projectId: "cars-ba7c1",
+        storageBucket: "cars-ba7c1.appspot.com",
+        messagingSenderId: "229289131512",
+        appId: "1:229289131512:web:e5e20cbaca6154de436a0d",
+        measurementId: "G-0EWCKPDSDD"
         };
-      
+
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
 
         // Initialize Cloud Firestore and get a reference to the service
         const db = getFirestore(app);
