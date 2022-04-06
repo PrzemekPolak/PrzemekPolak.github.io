@@ -20,7 +20,7 @@
     
             <ul class="navbar-nav mr-auto">
     
-                <li class="nav-item ml-3 m"><a class="nav-link active" href="#"> Start </a></li>
+                <li class="nav-item ml-3 m"><a class="nav-link active" href="#"> Lista produktów </a></li>
     
                 <li class="nav-item ml-3"><a class="nav-link " href="add_new.html"> Dodaj produkt </a></li>
     
@@ -57,8 +57,7 @@
         const querySnapshot = await getDocs(collection(db,"Products"));
 
         querySnapshot.forEach((doc) => {
-            console.log(doc.data());
-            console.log(doc.data()['name'],doc.data()['type']);
+
             document.writeln(doc.data()['name'],' ',doc.data()['type'],'<br>',doc.data()['amount'],'<br>');
             
         });
