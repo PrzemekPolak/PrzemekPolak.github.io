@@ -54,8 +54,14 @@
 
         // Initialize Cloud Firestore and get a reference to the service
         const db = getFirestore(app);
+        const querySnapshot = await getDocs(collection(db,"Products"));
 
-
+        querySnapshot.forEach((doc) => {
+            console.log(doc.data());
+            console.log(doc.data()['name'],doc.data()['type']);
+            document.writeln(doc.data()['name'],' ',doc.data()['type'],'<br>',doc.data()['amount'],'<br>');
+            
+        });
     </script>
 
 
