@@ -28,6 +28,7 @@
     
         </div>
     </nav>
+    <div id="main"></div>
 
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -55,11 +56,15 @@
         // Initialize Cloud Firestore and get a reference to the service
         const db = getFirestore(app);
         const querySnapshot = await getDocs(collection(db,"Products"));
+        var el = document.getElementById("main")
 
         querySnapshot.forEach((doc) => {
-
-            document.writeln(doc.data()['name'],' ',doc.data()['type'],'<br>',doc.data()['amount'],'<br>');
-            
+            var child = document.createElement("h4")
+            var prod = "Nazwa: " + doc.data()['name']
+            prod += ",  Rodzaj: " + doc.data()['type']         
+            prod += ",  Ilość: " + doc.data()['amount']
+            child.innerHTML = prod
+            el.appendChild(child)
         });
     </script>
 

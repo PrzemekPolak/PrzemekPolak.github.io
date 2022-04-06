@@ -65,7 +65,7 @@
         
         // Firestore
         import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
-        import { collection, getDocs, setDoc, doc, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
+        import { collection, getDocs, doc, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
         const firebaseConfig = {
         apiKey: "AIzaSyCO_bRChkSzS7u38Y5Ja6W6Fg44Lv9AR1Y",
         authDomain: "cars-ba7c1.firebaseapp.com",
@@ -84,24 +84,20 @@
         const db = getFirestore(app);
 
         async function submit(event) {
-        const nameValue = document.getElementById("inputName").value
-        const typeValue = document.getElementById("inputType").value
-        const amountValue = document.getElementById("inputAmount").value
+            const nameValue = document.getElementById("inputName").value
+            const typeValue = document.getElementById("inputType").value
+            const amountValue = document.getElementById("inputAmount").value
 
-        console.log(nameValue)
-        console.log(typeValue)
-        console.log(amountValue)
+            
+            await addDoc(collection(db, "Products"), {
+            name: nameValue,
+            type: typeValue,
+            amount: amountValue
+            });
+        }
 
-        
-        await addDoc(collection(db, "Products"), {
-        name: nameValue,
-        type: typeValue,
-        amount: amountValue
-        });
-    }
-
-    const form = document.getElementById("btn");
-    form.addEventListener("click", await submit);
+        const form = document.getElementById("btn");
+        form.addEventListener("click", await submit);
 
     </script>
 
