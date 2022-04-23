@@ -58,7 +58,7 @@ send_button.addEventListener('click', ddd);
 
 
 async function ddd() {
-	var c = canvas.getContext('2d');
+	var c = document.getElementById("canvas");
 
 	const fff = await new Promise(resolve => c.toBlob(resolve));
 
